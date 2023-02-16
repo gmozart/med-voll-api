@@ -6,6 +6,8 @@ import enums.Especialidade;
 import lombok.Builder;
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -15,11 +17,15 @@ import java.util.stream.Collectors;
 public class MedicoDTO {
 
     private Long id;
+    @NotBlank
     private String nome;
+    @NotBlank
     private Integer telefone;
+    @NotBlank
     private String email;
     private Integer crm;
     private Especialidade especialidade;
+    @NotBlank
     private Endereco endereco;
 
     public static MedicoDTO of(Medico medico){
