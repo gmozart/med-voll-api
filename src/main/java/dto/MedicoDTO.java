@@ -23,7 +23,9 @@ public class MedicoDTO {
     private Integer telefone;
     @NotBlank
     private String email;
+    @NotBlank
     private Integer crm;
+    @NotBlank
     private Especialidade especialidade;
     @NotBlank
     private Endereco endereco;
