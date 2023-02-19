@@ -1,6 +1,6 @@
-package entity;
+package med.voll.medvollapi.entity;
 
-import enums.Especialidade;
+import med.voll.medvollapi.enums.Especialidade;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

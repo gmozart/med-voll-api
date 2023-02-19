@@ -1,13 +1,12 @@
-package dto;
+package med.voll.medvollapi.dto;
 
-import entity.Endereco;
-import entity.Medico;
-import enums.Especialidade;
+import med.voll.medvollapi.entity.Endereco;
+import med.voll.medvollapi.entity.Medico;
+import med.voll.medvollapi.enums.Especialidade;
 import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;

@@ -1,4 +1,4 @@
-package enums;
+package med.voll.medvollapi.enums;
 
 public enum Especialidade {
 

@@ -1,4 +1,4 @@
-package entity;
+package med.voll.medvollapi.entity;
 
 import javax.persistence.Embeddable;
 

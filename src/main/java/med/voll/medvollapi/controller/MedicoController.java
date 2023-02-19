@@ -1,11 +1,11 @@
-package controller;
+package med.voll.medvollapi.controller;
 
-import dto.MedicoDTO;
+import med.voll.medvollapi.dto.MedicoDTO;
 import lombok.RequiredArgsConstructor;
+import med.voll.medvollapi.service.MedicoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.MedicoService;
 
 import javax.validation.Valid;
 
