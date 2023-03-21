@@ -9,5 +9,4 @@ class MedVollApiApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
