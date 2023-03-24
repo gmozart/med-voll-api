@@ -30,19 +30,23 @@ public class PacienteService {
     }
 
     public Optional<List<PacienteDTO>> findAll(){
+        log.info("Retornando uma lista pacientes!");
         return Optional.of(PacienteDTO.of(pacienteRepository.findAll()));
     }
 
     public Page<PacienteDTO> findAllPages(Integer pages, Integer size){
+        log.info("Retornando uma página de pacientes!");
         return new PageImpl<>(PacienteDTO.of(pacienteRepository.findAll()), PageRequest.of(pages,size), size);
     }
 
     public Optional<PacienteDTO> update(Long id, PacienteDTO pacienteDTO){
         pacienteDTO.setId(id);
+        log.info("Atualizando os dados de um paciente!");
         return Optional.of(PacienteDTO.of(pacienteRepository.save(PacienteDTO.of(pacienteDTO))));
     }
 
     public void delete(Long id){
+        log.info("Deletando um paciente por seu id!");
         pacienteRepository.deleteById(id);
     }
 }
