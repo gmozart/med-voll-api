@@ -7,6 +7,7 @@ import med.voll.medvollapi.service.MedicoService;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -20,6 +21,7 @@ public class MedicoController {
     private final MedicoService medicoService;
 
     @PostMapping
+    @Transactional
     public ResponseEntity<MedicoDTO> save(@Valid @RequestBody MedicoDTO medicoDTO){
         medicoService.save(medicoDTO);
         return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -41,11 +43,13 @@ public class MedicoController {
     }
 
     @PutMapping("/{id}")
+    @Transactional
     public ResponseEntity<MedicoDTO> update(@PathVariable Long id, @RequestBody MedicoDTO medicoDTO){
         return ResponseEntity.ok(medicoService.update(id,medicoDTO).orElseThrow(MdvNotFoundException::new));
     }
 
     @DeleteMapping("/{id}")
+    @Transactional
     public ResponseEntity<MedicoDTO> delete (@PathVariable Long id){
         medicoService.delete(id);
         return ResponseEntity.noContent().build();
