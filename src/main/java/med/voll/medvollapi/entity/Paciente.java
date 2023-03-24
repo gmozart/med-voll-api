@@ -1,20 +1,17 @@
 package med.voll.medvollapi.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 
-@Table(name = "pacientes")
-@Entity(name = "Paciente")
-@Getter
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+@NoArgsConstructor
+@Builder
+@Entity
+@Table(name="pacientes")
 public class Paciente {
 
     @Id
