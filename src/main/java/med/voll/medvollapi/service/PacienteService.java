@@ -2,6 +2,7 @@ package med.voll.medvollapi.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import med.voll.medvollapi.dto.MedicoDTO;
 import med.voll.medvollapi.dto.PacienteDTO;
 import med.voll.medvollapi.repository.PacienteRepository;
 import org.springframework.data.domain.Page;

@@ -1,6 +1,7 @@
 package med.voll.medvollapi.controller;
 
 import lombok.RequiredArgsConstructor;
+import med.voll.medvollapi.dto.MedicoDTO;
 import med.voll.medvollapi.dto.PacienteDTO;
 import med.voll.medvollapi.entity.Paciente;
 import med.voll.medvollapi.exception.MdvNotFoundException;
@@ -34,7 +35,7 @@ public class PacienteController {
         return ResponseEntity.ok(pacienteService.findById(id).orElseThrow(MdvNotFoundException::new));
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public  ResponseEntity<List<PacienteDTO>> findAll(){
         return ResponseEntity.ok(pacienteService.findAll().orElseThrow(MdvNotFoundException::new));
     }
