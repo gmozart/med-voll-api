@@ -34,7 +34,7 @@ public class PacienteService {
         return Optional.of(PacienteDTO.of(pacienteRepository.findAll()));
     }
 
-    public Page<PacienteDTO> findAllPages(Integer pages, Integer size){
+    public Page<PacienteDTO> findPage(Integer pages, Integer size){
         log.info("Retornando uma página de pacientes!");
         return new PageImpl<>(PacienteDTO.of(pacienteRepository.findAll()), PageRequest.of(pages,size), size);
     }

@@ -36,7 +36,7 @@ public class MedicoController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<MedicoDTO>> pageAll(@RequestParam Integer page, @RequestParam Integer size){
+    public ResponseEntity<Page<MedicoDTO>> findPage(@RequestParam Integer page, @RequestParam Integer size){
         return  ResponseEntity.ok(medicoService.findAllPages(page, size));
     }
 
