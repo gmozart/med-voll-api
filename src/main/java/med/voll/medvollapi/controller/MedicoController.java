@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -22,9 +23,10 @@ public class MedicoController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<MedicoDTO> save(@Valid @RequestBody MedicoDTO medicoDTO){
+    public ResponseEntity<MedicoDTO> save(@Valid @RequestBody MedicoDTO medicoDTO, UriComponentsBuilder uriBuilder){
         medicoService.save(medicoDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        var uri = uriBuilder.path("/medicos/{id}").buildAndExpand(medicoDTO.getId()).toUri();
+        return ResponseEntity.created(uri).body(medicoDTO);
     }
 
     @GetMapping("/{id}")

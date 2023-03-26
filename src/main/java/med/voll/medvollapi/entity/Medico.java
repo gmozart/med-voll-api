@@ -20,9 +20,9 @@ public class Medico {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private Integer telefone;
+    private String telefone;
     private String email;
-    private Integer crm;
+    private String crm;
     @Enumerated(EnumType.STRING)
     private Especialidade especialidade;
     @Embedded

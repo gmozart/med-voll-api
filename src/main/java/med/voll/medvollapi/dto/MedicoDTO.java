@@ -19,11 +19,11 @@ public class MedicoDTO {
     @NotBlank
     private String nome;
     @NotBlank
-    private Integer telefone;
+    private String telefone;
     @NotBlank
     private String email;
     @NotBlank
-    private Integer crm;
+    private String crm;
     @NotBlank
     private Especialidade especialidade;
     @NotBlank
