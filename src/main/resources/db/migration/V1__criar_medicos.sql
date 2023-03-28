@@ -1,6 +1,6 @@
 CREATE TABLE medicos(
 
-    id INT PRIMARY KEY NOT NULL,
+    id bigint NOT NULL auto_increment,
     nome VARCHAR(100) NOT NULL,
     telefone VARCHAR(13) NOT NULL,
     email VARCHAR(100) NOT NULL,
@@ -12,9 +12,8 @@ CREATE TABLE medicos(
     bairro VARCHAR(100) NOT NULL,
     numero INT NOT NULL,
     cidade VARCHAR(50) NOT NULL,
-    estado VARCHAR(2) NOT NULL
-
-
+    estado VARCHAR(2) NOT NULL,
+    primary key(id)
 );
 
 INSERT INTO medicos VALUES(1, "Rodrigo ferreira", "5581987550512", "rodrigo.ferreira@medvoll.com", "01254758-0/PE","ORTOPEDIA","50721530","Condomonio bom Jesus","TRIPLEX", "BOA VISTA", 65, "RECIFE", "PE");

@@ -2,16 +2,16 @@ package med.voll.medvollapi.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
 
 @Embeddable
 @Builder
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class Endereco {
 
     private String logradouro;

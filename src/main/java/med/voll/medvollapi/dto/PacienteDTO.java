@@ -25,6 +25,7 @@ public class PacienteDTO {
     private String cpf;
     @NotBlank
     private Endereco endereco;
+
     private Boolean ativo;
 
     public static PacienteDTO of(Paciente paciente){

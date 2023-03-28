@@ -24,9 +24,9 @@ public class MedicoDTO {
     private String email;
     @NotBlank
     private String crm;
-    @NotBlank
+
     private Especialidade especialidade;
-    @NotBlank
+
     private Endereco endereco;
 
     public static MedicoDTO of(Medico medico){
