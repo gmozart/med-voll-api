@@ -1,13 +1,9 @@
 package med.voll.medvollapi.controller;
 
 import lombok.RequiredArgsConstructor;
-import med.voll.medvollapi.dto.MedicoDTO;
 import med.voll.medvollapi.dto.PacienteDTO;
-import med.voll.medvollapi.entity.Paciente;
-import med.voll.medvollapi.exception.MdvNotFoundException;
 import med.voll.medvollapi.service.PacienteService;
 import org.springframework.data.domain.Page;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -34,12 +30,12 @@ public class PacienteController {
 
     @GetMapping("/{id}")
     public ResponseEntity<PacienteDTO> findById(@PathVariable Long id){
-        return ResponseEntity.ok(pacienteService.findById(id).orElseThrow(MdvNotFoundException::new));
+        return ResponseEntity.ok(pacienteService.findById(id).get());
     }
 
     @GetMapping("/all")
     public  ResponseEntity<List<PacienteDTO>> findAll(){
-        return ResponseEntity.ok(pacienteService.findAll().orElseThrow(MdvNotFoundException::new));
+        return ResponseEntity.ok(pacienteService.findAll().get());
     }
 
     @GetMapping
@@ -50,7 +46,7 @@ public class PacienteController {
     @PutMapping("/{id}")
     @Transactional
     public ResponseEntity<PacienteDTO> update(@PathVariable Long id, @RequestBody PacienteDTO pacienteDTO){
-        return ResponseEntity.ok(pacienteService.update(id, pacienteDTO).orElseThrow(MdvNotFoundException::new));
+        return ResponseEntity.ok(pacienteService.update(id, pacienteDTO).get());
     }
 
     @DeleteMapping("/{id}")
