@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 
 import javax.validation.Valid;
@@ -25,9 +26,10 @@ public class PacienteController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<PacienteDTO> save(@Valid @RequestBody PacienteDTO pacienteDTO){
+    public ResponseEntity<PacienteDTO> save(@Valid @RequestBody PacienteDTO pacienteDTO, UriComponentsBuilder uriBuilder){
         pacienteService.save(pacienteDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        var uri = uriBuilder.path("/pacientes/{id}").buildAndExpand(pacienteDTO.getId()).toUri();
+        return ResponseEntity.created(uri).body(pacienteDTO);
     }
 
     @GetMapping("/{id}")
