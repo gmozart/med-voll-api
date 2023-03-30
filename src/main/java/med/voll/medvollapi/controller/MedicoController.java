@@ -2,10 +2,8 @@ package med.voll.medvollapi.controller;
 
 import med.voll.medvollapi.dto.MedicoDTO;
 import lombok.RequiredArgsConstructor;
-import med.voll.medvollapi.exception.MdvNotFoundException;
 import med.voll.medvollapi.service.MedicoService;
 import org.springframework.data.domain.Page;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -31,12 +29,12 @@ public class MedicoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<MedicoDTO> findById(@PathVariable Long id){
-        return ResponseEntity.ok(medicoService.findByid(id).orElseThrow(MdvNotFoundException::new));
+        return ResponseEntity.ok(medicoService.findByid(id).get());
     }
 
     @GetMapping("/all")
     public ResponseEntity<List<MedicoDTO>> findAll(){
-        return ResponseEntity.ok(medicoService.findAll().orElseThrow(MdvNotFoundException::new));
+        return ResponseEntity.ok(medicoService.findAll().get());
     }
 
     @GetMapping
@@ -47,7 +45,7 @@ public class MedicoController {
     @PutMapping("/{id}")
     @Transactional
     public ResponseEntity<MedicoDTO> update(@PathVariable Long id, @RequestBody MedicoDTO medicoDTO){
-        return ResponseEntity.ok(medicoService.update(id,medicoDTO).orElseThrow(MdvNotFoundException::new));
+        return ResponseEntity.ok(medicoService.update(id,medicoDTO).get());
     }
 
     @DeleteMapping("/{id}")
