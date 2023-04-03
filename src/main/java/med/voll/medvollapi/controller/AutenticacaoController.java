@@ -2,6 +2,8 @@ package med.voll.medvollapi.controller;
 
 import lombok.RequiredArgsConstructor;
 import med.voll.medvollapi.dto.UsuarioDTO;
+import med.voll.medvollapi.entity.Usuario;
+import med.voll.medvollapi.security.TokenService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,12 +21,15 @@ public class AutenticacaoController {
 
     private final AuthenticationManager manager;
 
+    private final TokenService tokenService;
+
     @PostMapping
     public ResponseEntity efetuarLogin(@RequestBody @Valid UsuarioDTO usuarioDTO){
         var token = new UsernamePasswordAuthenticationToken(usuarioDTO.getLogin(),usuarioDTO.getSenha());
         var authentication = manager.authenticate(token);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(tokenService.gerarToken((Usuario) authentication.getPrincipal()));
     }
+
 
 }
