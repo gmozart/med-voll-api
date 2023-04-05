@@ -42,13 +42,13 @@ public class TokenService {
                     .verify(tokenJWT)
                     .getSubject();
         } catch (JWTVerificationException exception){
-            throw new RuntimeException("tokeJWT invalido ou expirado!", exception);
+            throw new RuntimeException("tokeJWT invalido ou expirado!");
         }
     }
 
 
     private Instant dataExpiracao() {
-        return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
+        return LocalDateTime.now().plusHours(4).toInstant(ZoneOffset.of("-03:00"));
     }
 
 }
