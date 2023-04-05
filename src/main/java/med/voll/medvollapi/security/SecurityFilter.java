@@ -1,5 +1,6 @@
 package med.voll.medvollapi.security;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import javax.servlet.FilterChain;
@@ -10,13 +11,17 @@ import java.io.IOException;
 
 
 @Component
+@RequiredArgsConstructor
 public class SecurityFilter extends OncePerRequestFilter {
 
+    private final TokenService tokenService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         var tokenJWT = recuperarToken(request);
-        System.out.println(tokenJWT);
+
+        var subject = tokenService.getSubject(tokenJWT);
+
         filterChain.doFilter(request,response);
     }
 
