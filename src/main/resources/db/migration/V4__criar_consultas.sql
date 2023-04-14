@@ -7,6 +7,6 @@ CREATE TABLE consultas(
 
     primary key(id),
     CONSTRAINT fk_consultas_medico_id FOREIGN KEY(medico_id) REFERENCES medicos(id),
-    CONSTRAINT fk_constulas_paciente_id FOREIGN KEI(paciente_id) REFERENCES pacientes(id)
+    CONSTRAINT fk_constulas_paciente_id FOREIGN KEY(paciente_id) REFERENCES pacientes(id)
 
 );
