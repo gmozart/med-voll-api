@@ -7,6 +7,8 @@ import med.voll.medvollapi.entity.Medico;
 import med.voll.medvollapi.entity.Paciente;
 
 
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -18,10 +20,14 @@ public class ConsultaDTO {
 
     private Long id;
 
+    @NotNull
     private Medico medico;
 
+    @NotNull
     private Paciente paciente;
 
+    @Future
+    @NotNull
     private LocalDateTime data;
 
     public static ConsultaDTO of(Consulta consulta){
