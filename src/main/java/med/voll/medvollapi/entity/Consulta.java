@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import med.voll.medvollapi.enums.Especialidade;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -30,6 +31,5 @@ public class Consulta {
     private Paciente paciente;
 
     private LocalDateTime data;
-
 
 }

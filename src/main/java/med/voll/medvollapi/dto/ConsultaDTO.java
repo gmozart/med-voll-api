@@ -5,6 +5,7 @@ import lombok.Data;
 import med.voll.medvollapi.entity.Consulta;
 import med.voll.medvollapi.entity.Medico;
 import med.voll.medvollapi.entity.Paciente;
+import med.voll.medvollapi.enums.Especialidade;
 
 
 import javax.validation.constraints.Future;
