@@ -2,6 +2,7 @@ package med.voll.medvollapi.service;
 
 import lombok.RequiredArgsConstructor;
 import med.voll.medvollapi.dto.ConsultaDTO;
+import med.voll.medvollapi.entity.Consulta;
 import med.voll.medvollapi.entity.Medico;
 import med.voll.medvollapi.exception.ValidacaoException;
 import med.voll.medvollapi.repository.ConsultaRepository;
@@ -28,6 +29,22 @@ public class ConsultaService {
         if (dados.idMedico() != null && !medicoRepository.existsById(dados.idMedico())){
             throw new ValidacaoException("Id do médico informado não existe!");
         }
+
+        var paciente = pacienteRepository.getReferenceById(dados.idPaciente());
+        var medico = escolherMedico(dados);
+        var consulta = new Consulta(null, medico, paciente, dados.data());
+        consultaRepository.save(consulta);
+    }
+
+    private Medico escolherMedico(DadosAgendamentoConsulta dados){
+        if(dados.idMedico() != null){
+            return medicoRepository.getReferenceById(dados.idMedico());
+        }
+        if(dados.especialidade() == null){
+            throw new ValidacaoException("Especialidade é obrigatória quando o médico não for escolhido");
+        }
+
+        return medicoRepository.escolherMedicoLivreNaData(dados.especialidade(), dados.data());
     }
 
 
