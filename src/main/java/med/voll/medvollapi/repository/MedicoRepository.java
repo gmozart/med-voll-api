@@ -10,8 +10,19 @@ import java.time.LocalDateTime;
 public interface MedicoRepository extends JpaRepository<Medico, Long> {
 
 
-    @Query("""
-            
-            """)
+    @Query(
+            value = "    SELECT m.id FROM Medicos m " +
+            "WHERE" +
+            "m.ativo = 1" +
+            "AND" +
+            "m.especialidade = :especialidade" +
+            "AND" +
+            "m.id NOT IN(" +
+            "SELECT c.medico_id FROM Consultas c"+
+            "WHERE"+
+            "c.data = :data"+
+            ")"+
+            " ORDER BY RAND() "+
+            " LIMIT 1 ", nativeQuery = true)
     Medico escolherMedicoLivreNaData(Especialidade especialidade, LocalDateTime data);
 }
