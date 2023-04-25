@@ -1,4 +1,4 @@
-package med.voll.medvollapi.service;
+package med.voll.medvollapi.service.autenticacao.service;
 
 import lombok.RequiredArgsConstructor;
 import med.voll.medvollapi.repository.UsuarioRepository;

@@ -1,4 +1,4 @@
-package med.voll.medvollapi.service;
+package med.voll.medvollapi.service.paciente.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -2,7 +2,7 @@ package med.voll.medvollapi.controller;
 
 import med.voll.medvollapi.dto.MedicoDTO;
 import lombok.RequiredArgsConstructor;
-import med.voll.medvollapi.service.MedicoService;
+import med.voll.medvollapi.service.medico.service.MedicoService;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;

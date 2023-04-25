@@ -1,4 +1,4 @@
-package med.voll.medvollapi.service;
+package med.voll.medvollapi.service.medico.service;
 
 import med.voll.medvollapi.dto.MedicoDTO;
 import lombok.RequiredArgsConstructor;
