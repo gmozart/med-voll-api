@@ -14,7 +14,7 @@ public class MedicoAtivo {
 
         var medicoAtivo = medico.findById(dados.idMedico());
 
-        if(medicoAtivo.isPresent() && medicoAtivo.get().getSnAtivo().equals(0)){
+        if(medicoAtivo.isPresent() && medicoAtivo.get().getSnAtivo().equals(false)){
             throw new ValidacaoException("Consulta não pode ser agendada com paciente inativo!");
         }
     }
