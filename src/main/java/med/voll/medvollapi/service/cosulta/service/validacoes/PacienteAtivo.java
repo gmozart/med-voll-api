@@ -13,9 +13,8 @@ public class PacienteAtivo {
     public void validar(DadosAgendamentoConsulta dados){
 
         var pacienteAtivo = paciente.findById(dados.idPaciente());
-        var snAtivo = pacienteAtivo.get().getAtivo();
 
-        if (!snAtivo){
+        if(pacienteAtivo.isPresent() && pacienteAtivo.get().getAtivo().equals(0)){
             throw new ValidacaoException("Consulta não pode ser agendada com paciente inativo!");
         }
     }
