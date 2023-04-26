@@ -27,5 +27,6 @@ public class Medico {
     private Especialidade especialidade;
     @Embedded
     private Endereco endereco;
+    private Boolean snAtivo;
 
 }

@@ -29,6 +29,8 @@ public class MedicoDTO {
 
     private Endereco endereco;
 
+    private Boolean snAtivo;
+
     public static MedicoDTO of(Medico medico){
         return MedicoDTO.builder()
                 .id(medico.getId())
@@ -38,6 +40,7 @@ public class MedicoDTO {
                 .crm(medico.getCrm())
                 .especialidade(medico.getEspecialidade())
                 .endereco(medico.getEndereco())
+                .snAtivo(medico.getSnAtivo())
                 .build();
     }
 
@@ -50,6 +53,7 @@ public class MedicoDTO {
                 .crm(medicoDTO.getCrm())
                 .especialidade(medicoDTO.getEspecialidade())
                 .endereco(medicoDTO.getEndereco())
+                .snAtivo(medicoDTO.getSnAtivo())
                 .build();
     }
 
