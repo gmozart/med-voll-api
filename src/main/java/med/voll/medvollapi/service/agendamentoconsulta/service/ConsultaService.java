@@ -7,8 +7,11 @@ import med.voll.medvollapi.exception.ValidacaoException;
 import med.voll.medvollapi.repository.ConsultaRepository;
 import med.voll.medvollapi.repository.MedicoRepository;
 import med.voll.medvollapi.repository.PacienteRepository;
+import med.voll.medvollapi.repository.ValidadorAgendamentoConsultas;
 import med.voll.medvollapi.transaction.response.DadosAgendamentoConsulta;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -20,6 +23,8 @@ public class ConsultaService {
 
     private final PacienteRepository pacienteRepository;
 
+    private final List<ValidadorAgendamentoConsultas> validadores;
+
     public void agendarConsulta(DadosAgendamentoConsulta dados){
 
         if(!pacienteRepository.existsById(dados.idPaciente())){
@@ -28,6 +33,8 @@ public class ConsultaService {
         if (dados.idMedico() != null && !medicoRepository.existsById(dados.idMedico())){
             throw new ValidacaoException("Id do médico informado não existe!");
         }
+
+        validadores.forEach(v -> v.validar(dados));
 
         var paciente = pacienteRepository.getReferenceById(dados.idPaciente());
         var medico = escolherMedico(dados);
