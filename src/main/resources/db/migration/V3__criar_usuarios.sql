@@ -7,3 +7,5 @@ CREATE TABLE usuarios(
     primary key(id)
 
 );
+
+INSERT INTO usuarios VALUES(1,"ana.gmail","$2a$10$Y50UaMFOxteibQEYLrwuHeehHYfcoafCopUazP12.rqB41bsolF5.");
