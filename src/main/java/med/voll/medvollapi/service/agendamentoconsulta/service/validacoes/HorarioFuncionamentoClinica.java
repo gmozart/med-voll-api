@@ -11,10 +11,13 @@ public class HorarioFuncionamentoClinica implements ValidadorAgendamentoConsulta
 
    public void validar(DadosAgendamentoConsulta dadosAgendamentoConsulta){
 
+       var inicioHorarioClinica = 7;
+       var fimHorarioClinica= 18;
+
        var dataConsulta = dadosAgendamentoConsulta.data();
        var domingo = dataConsulta.getDayOfWeek().equals(DayOfWeek.SUNDAY);
-       var antesAberturaClinica = dataConsulta.getHour() < 7;
-       var depoisEncerramentoClinica = dataConsulta.getHour() > 18;
+       var antesAberturaClinica = dataConsulta.getHour() < inicioHorarioClinica;
+       var depoisEncerramentoClinica = dataConsulta.getHour() > fimHorarioClinica;
 
        if(domingo || antesAberturaClinica || depoisEncerramentoClinica){
            throw new RuntimeException("Consulta fora do horário de funcionamento da clinica!");
