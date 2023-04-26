@@ -9,9 +9,9 @@ import java.time.DayOfWeek;
 @Component
 public class HorarioFuncionamentoClinica implements ValidadorAgendamentoConsultas {
 
-   public void validar(DadosAgendamentoConsulta dados){
+   public void validar(DadosAgendamentoConsulta dadosAgendamentoConsulta){
 
-       var dataConsulta = dados.data();
+       var dataConsulta = dadosAgendamentoConsulta.data();
        var domingo = dataConsulta.getDayOfWeek().equals(DayOfWeek.SUNDAY);
        var antesAberturaClinica = dataConsulta.getHour() < 7;
        var depoisEncerramentoClinica = dataConsulta.getHour() > 18;

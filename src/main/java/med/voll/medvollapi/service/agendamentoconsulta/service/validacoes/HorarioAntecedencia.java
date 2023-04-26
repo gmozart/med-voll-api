@@ -11,9 +11,9 @@ import java.time.LocalDateTime;
 @Component
 public class HorarioAntecedencia implements ValidadorAgendamentoConsultas {
 
-    public void validar(DadosAgendamentoConsulta dados){
+    public void validar(DadosAgendamentoConsulta dadosAgendamentoConsulta){
 
-        var dataConsulta = dados.data();
+        var dataConsulta = dadosAgendamentoConsulta.data();
         var agora = LocalDateTime.now();
         var diferencaMinutos = Duration.between(dataConsulta,agora).toMinutes();
 

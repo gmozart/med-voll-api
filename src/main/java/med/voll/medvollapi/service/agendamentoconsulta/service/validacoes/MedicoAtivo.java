@@ -14,9 +14,9 @@ public class MedicoAtivo implements ValidadorAgendamentoConsultas {
 
     private final MedicoRepository medico;
 
-    public void validar(DadosAgendamentoConsulta dados){
+    public void validar(DadosAgendamentoConsulta dadosAgendamentoConsulta){
 
-        var medicoAtivo = medico.findById(dados.idMedico());
+        var medicoAtivo = medico.findById(dadosAgendamentoConsulta.idMedico());
 
         if(medicoAtivo.isPresent() && medicoAtivo.get().getSnAtivo().equals(false)){
             throw new ValidacaoException("Consulta não pode ser agendada com paciente inativo!");

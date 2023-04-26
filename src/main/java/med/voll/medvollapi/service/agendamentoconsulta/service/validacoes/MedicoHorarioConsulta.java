@@ -11,11 +11,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class MedicoHorarioConsulta implements ValidadorAgendamentoConsultas {
 
-    private final ConsultaRepository consulta;
+    private final ConsultaRepository consultaRepository;
 
-    public void validar(DadosAgendamentoConsulta dados){
+    public void validar(DadosAgendamentoConsulta dadosAgendamentoConsulta){
 
-        var medicoPossuiConsulta = consulta.existsByMedicoIdAndData(dados.idMedico(), dados.data());
+        var medicoPossuiConsulta = consultaRepository.existsByMedicoIdAndData(dadosAgendamentoConsulta.idMedico(), dadosAgendamentoConsulta.data());
 
         if (medicoPossuiConsulta){
             throw  new ValidacaoException("Medico já possui consulta agendada neste horario!");

@@ -11,13 +11,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class PacienteHorarioConsulta  implements ValidadorAgendamentoConsultas {
 
-    private final ConsultaRepository consulta;
+    private final ConsultaRepository consultaRepository;
 
-    public void validar(DadosAgendamentoConsulta dados){
+    public void validar(DadosAgendamentoConsulta dadosAgendamentoConsulta){
 
-        var primeiroHorario = dados.data().withHour(7);
-        var ultimoHorario = dados.data().withHour(18);
-        var medicoPossuiConsulta = consulta.existsByPacienteIdAndDataBetween(dados.idPaciente(), primeiroHorario, ultimoHorario);
+        var primeiroHorario = dadosAgendamentoConsulta.data().withHour(7);
+        var ultimoHorario = dadosAgendamentoConsulta.data().withHour(18);
+        var medicoPossuiConsulta = consultaRepository.existsByPacienteIdAndDataBetween(dadosAgendamentoConsulta.idPaciente(), primeiroHorario, ultimoHorario);
 
         if (medicoPossuiConsulta){
             throw  new ValidacaoException("Paciente já possui consulta agendada neste horario!");

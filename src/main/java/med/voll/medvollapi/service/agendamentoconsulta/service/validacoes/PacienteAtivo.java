@@ -11,11 +11,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class PacienteAtivo  implements ValidadorAgendamentoConsultas {
 
-    private final PacienteRepository paciente;
+    private final PacienteRepository pacienteRepository;
 
-    public void validar(DadosAgendamentoConsulta dados){
+    public void validar(DadosAgendamentoConsulta dadosAgendamentoConsulta){
 
-        var pacienteAtivo = paciente.findById(dados.idPaciente());
+        var pacienteAtivo = pacienteRepository.findById(dadosAgendamentoConsulta.idPaciente());
 
         if(pacienteAtivo.isPresent() && pacienteAtivo.get().getAtivo().equals(false)){
             throw new ValidacaoException("Consulta não pode ser agendada com paciente inativo!");
