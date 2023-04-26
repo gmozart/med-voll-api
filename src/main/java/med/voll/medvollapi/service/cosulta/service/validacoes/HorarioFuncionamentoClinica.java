@@ -16,8 +16,5 @@ public class HorarioFuncionamentoClinica {
        if(domingo || antesAberturaClinica || depoisEncerramentoClinica){
            throw new RuntimeException("Consulta fora do horário de funcionamento da clinica!");
        }
-
    }
-
-
 }
