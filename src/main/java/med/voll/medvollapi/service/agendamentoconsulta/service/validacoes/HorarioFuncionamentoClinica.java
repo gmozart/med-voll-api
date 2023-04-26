@@ -1,4 +1,4 @@
-package med.voll.medvollapi.service.cosulta.service.validacoes;
+package med.voll.medvollapi.service.agendamentoconsulta.service.validacoes;
 
 import med.voll.medvollapi.transaction.response.DadosAgendamentoConsulta;
 

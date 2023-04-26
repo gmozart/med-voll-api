@@ -1,20 +1,20 @@
-package med.voll.medvollapi.service.cosulta.service.validacoes;
+package med.voll.medvollapi.service.agendamentoconsulta.service.validacoes;
 
 import lombok.RequiredArgsConstructor;
 import med.voll.medvollapi.exception.ValidacaoException;
-import med.voll.medvollapi.repository.PacienteRepository;
+import med.voll.medvollapi.repository.MedicoRepository;
 import med.voll.medvollapi.transaction.response.DadosAgendamentoConsulta;
 
 @RequiredArgsConstructor
-public class PacienteAtivo {
+public class MedicoAtivo {
 
-    private final PacienteRepository paciente;
+    private final MedicoRepository medico;
 
     public void validar(DadosAgendamentoConsulta dados){
 
-        var pacienteAtivo = paciente.findById(dados.idPaciente());
+        var medicoAtivo = medico.findById(dados.idMedico());
 
-        if(pacienteAtivo.isPresent() && pacienteAtivo.get().getAtivo().equals(false)){
+        if(medicoAtivo.isPresent() && medicoAtivo.get().getSnAtivo().equals(false)){
             throw new ValidacaoException("Consulta não pode ser agendada com paciente inativo!");
         }
     }

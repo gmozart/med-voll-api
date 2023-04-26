@@ -1,4 +1,4 @@
-package med.voll.medvollapi.service.cosulta.service;
+package med.voll.medvollapi.service.agendamentoconsulta.service;
 
 import lombok.RequiredArgsConstructor;
 import med.voll.medvollapi.entity.Consulta;
