@@ -1,10 +1,13 @@
 package med.voll.medvollapi.service.agendamentoconsulta.service.validacoes;
 
+import med.voll.medvollapi.repository.ValidadorAgendamentoConsultas;
 import med.voll.medvollapi.transaction.response.DadosAgendamentoConsulta;
+import org.springframework.stereotype.Component;
 
 import java.time.DayOfWeek;
 
-public class HorarioFuncionamentoClinica {
+@Component
+public class HorarioFuncionamentoClinica implements ValidadorAgendamentoConsultas {
 
    public void validar(DadosAgendamentoConsulta dados){
 

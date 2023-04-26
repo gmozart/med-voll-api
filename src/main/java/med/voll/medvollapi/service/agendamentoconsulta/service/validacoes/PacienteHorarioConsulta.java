@@ -3,10 +3,13 @@ package med.voll.medvollapi.service.agendamentoconsulta.service.validacoes;
 import lombok.RequiredArgsConstructor;
 import med.voll.medvollapi.exception.ValidacaoException;
 import med.voll.medvollapi.repository.ConsultaRepository;
+import med.voll.medvollapi.repository.ValidadorAgendamentoConsultas;
 import med.voll.medvollapi.transaction.response.DadosAgendamentoConsulta;
+import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
-public class PacienteHorarioConsulta {
+@Component
+public class PacienteHorarioConsulta  implements ValidadorAgendamentoConsultas {
 
     private final ConsultaRepository consulta;
 
