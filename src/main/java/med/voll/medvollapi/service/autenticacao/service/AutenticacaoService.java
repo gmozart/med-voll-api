@@ -1,5 +1,6 @@
 package med.voll.medvollapi.service.autenticacao.service;
 
+
 import lombok.RequiredArgsConstructor;
 import med.voll.medvollapi.repository.UsuarioRepository;
 import org.springframework.security.core.userdetails.UserDetails;

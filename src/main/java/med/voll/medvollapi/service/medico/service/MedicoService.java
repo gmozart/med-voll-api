@@ -1,8 +1,9 @@
 package med.voll.medvollapi.service.medico.service;
 
-import med.voll.medvollapi.dto.MedicoDTO;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import med.voll.medvollapi.dto.MedicoDTO;
 import med.voll.medvollapi.repository.MedicoRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;

@@ -1,5 +1,6 @@
 package med.voll.medvollapi.service.agendamentoconsulta.service;
 
+
 import lombok.RequiredArgsConstructor;
 import med.voll.medvollapi.entity.Consulta;
 import med.voll.medvollapi.entity.Medico;

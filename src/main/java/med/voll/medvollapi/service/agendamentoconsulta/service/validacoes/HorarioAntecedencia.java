@@ -1,5 +1,6 @@
 package med.voll.medvollapi.service.agendamentoconsulta.service.validacoes;
 
+
 import med.voll.medvollapi.exception.ValidacaoException;
 import med.voll.medvollapi.repository.ValidadorAgendamentoConsultas;
 import med.voll.medvollapi.transaction.response.DadosAgendamentoConsulta;

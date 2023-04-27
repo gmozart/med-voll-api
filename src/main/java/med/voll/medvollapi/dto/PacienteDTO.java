@@ -1,11 +1,10 @@
 package med.voll.medvollapi.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Data;
 import med.voll.medvollapi.entity.Endereco;
 import med.voll.medvollapi.entity.Paciente;
-
-import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;

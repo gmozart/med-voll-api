@@ -1,12 +1,11 @@
 package med.voll.medvollapi.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import med.voll.medvollapi.entity.Endereco;
 import med.voll.medvollapi.entity.Medico;
 import med.voll.medvollapi.enums.Especialidade;
 import lombok.Builder;
 import lombok.Data;
-
-import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -29,7 +28,7 @@ public class MedicoDTO {
 
     private Endereco endereco;
 
-    private Boolean snAtivo;
+    private Boolean ativo;
 
     public static MedicoDTO of(Medico medico){
         return MedicoDTO.builder()
@@ -40,7 +39,7 @@ public class MedicoDTO {
                 .crm(medico.getCrm())
                 .especialidade(medico.getEspecialidade())
                 .endereco(medico.getEndereco())
-                .snAtivo(medico.getSnAtivo())
+                .ativo(medico.getAtivo())
                 .build();
     }
 
@@ -53,7 +52,7 @@ public class MedicoDTO {
                 .crm(medicoDTO.getCrm())
                 .especialidade(medicoDTO.getEspecialidade())
                 .endereco(medicoDTO.getEndereco())
-                .snAtivo(medicoDTO.getSnAtivo())
+                .ativo(medicoDTO.getAtivo())
                 .build();
     }
 

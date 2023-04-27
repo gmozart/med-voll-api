@@ -1,15 +1,12 @@
 package med.voll.medvollapi.dto;
 
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
 import med.voll.medvollapi.entity.Consulta;
 import med.voll.medvollapi.entity.Medico;
 import med.voll.medvollapi.entity.Paciente;
-import med.voll.medvollapi.enums.Especialidade;
-
-
-import javax.validation.constraints.Future;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;

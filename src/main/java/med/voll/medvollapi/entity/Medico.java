@@ -1,12 +1,12 @@
 package med.voll.medvollapi.entity;
 
-import med.voll.medvollapi.enums.Especialidade;
+
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
+import med.voll.medvollapi.enums.Especialidade;
 
 @Data
 @AllArgsConstructor
@@ -27,6 +27,6 @@ public class Medico {
     private Especialidade especialidade;
     @Embedded
     private Endereco endereco;
-    private Boolean snAtivo;
+    private Boolean ativo;
 
 }

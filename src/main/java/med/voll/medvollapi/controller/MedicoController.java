@@ -1,15 +1,16 @@
 package med.voll.medvollapi.controller;
 
-import med.voll.medvollapi.dto.MedicoDTO;
+
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import med.voll.medvollapi.dto.MedicoDTO;
 import med.voll.medvollapi.service.medico.service.MedicoService;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RequiredArgsConstructor

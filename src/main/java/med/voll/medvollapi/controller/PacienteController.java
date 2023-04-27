@@ -1,16 +1,16 @@
 package med.voll.medvollapi.controller;
 
+
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import med.voll.medvollapi.dto.PacienteDTO;
 import med.voll.medvollapi.service.paciente.service.PacienteService;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-
-import javax.validation.Valid;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -22,7 +22,7 @@ public class PacienteController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<PacienteDTO> save(@Valid @RequestBody PacienteDTO pacienteDTO, UriComponentsBuilder uriBuilder){
+    public ResponseEntity<PacienteDTO> save(@RequestBody @Valid PacienteDTO pacienteDTO, UriComponentsBuilder uriBuilder){
         pacienteService.save(pacienteDTO);
         var uri = uriBuilder.path("/pacientes/{id}").buildAndExpand(pacienteDTO.getId()).toUri();
         return ResponseEntity.created(uri).body(pacienteDTO);

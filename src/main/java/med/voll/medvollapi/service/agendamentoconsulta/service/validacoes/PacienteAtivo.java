@@ -1,5 +1,6 @@
 package med.voll.medvollapi.service.agendamentoconsulta.service.validacoes;
 
+
 import lombok.RequiredArgsConstructor;
 import med.voll.medvollapi.exception.ValidacaoException;
 import med.voll.medvollapi.repository.PacienteRepository;

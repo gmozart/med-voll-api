@@ -1,5 +1,6 @@
 package med.voll.medvollapi.repository;
 
+
 import med.voll.medvollapi.entity.Medico;
 import med.voll.medvollapi.enums.Especialidade;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,13 +1,10 @@
 package med.voll.medvollapi.entity;
 
-
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import med.voll.medvollapi.enums.Especialidade;
-
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
