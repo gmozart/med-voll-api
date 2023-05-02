@@ -1,21 +1,21 @@
 package med.voll.medvollapi.service.agendamentoconsulta.service.validacoes;
 
 
-import med.voll.medvollapi.repository.ValidadorAgendamentoConsultas;
-import med.voll.medvollapi.transaction.response.DadosAgendamentoConsulta;
+import med.voll.medvollapi.dto.ConsultaDTO;
+import med.voll.medvollapi.repository.ValidadorAgendamentoConsultasRepository;
 import org.springframework.stereotype.Component;
 
 import java.time.DayOfWeek;
 
 @Component
-public class HorarioFuncionamentoClinica implements ValidadorAgendamentoConsultas {
+public class HorarioFuncionamentoClinica implements ValidadorAgendamentoConsultasRepository {
 
-   public void validar(DadosAgendamentoConsulta dadosAgendamentoConsulta){
+   public void validar(ConsultaDTO dadosAgendamentoConsulta){
 
        var inicioHorarioClinica = 7;
        var fimHorarioClinica= 18;
 
-       var dataConsulta = dadosAgendamentoConsulta.data();
+       var dataConsulta = dadosAgendamentoConsulta.getData();
        var domingo = dataConsulta.getDayOfWeek().equals(DayOfWeek.SUNDAY);
        var antesAberturaClinica = dataConsulta.getHour() < inicioHorarioClinica;
        var depoisEncerramentoClinica = dataConsulta.getHour() > fimHorarioClinica;
