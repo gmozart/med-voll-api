@@ -18,21 +18,18 @@ public class ConsultaDTO {
 
     private Long id;
 
-    @NotNull
-    private Medico medico;
+    private Long medicoId;
 
-    @NotNull
-    private Paciente paciente;
+    private Long pacienteId;
 
     @Future
-    @NotNull
     private LocalDateTime data;
 
     public static ConsultaDTO of(Consulta consulta){
         return ConsultaDTO.builder()
                 .id(consulta.getId())
-                .medico(consulta.getMedico())
-                .paciente(consulta.getPaciente())
+                .medicoId(consulta.getMedico().getId())
+                .pacienteId(consulta.getPaciente().getId())
                 .data(consulta.getData())
                 .build();
     }
@@ -40,8 +37,6 @@ public class ConsultaDTO {
     public static Consulta of(ConsultaDTO consultaDTO){
         return Consulta.builder()
                 .id(consultaDTO.getId())
-                .medico(consultaDTO.getMedico())
-                .paciente(consultaDTO.getPaciente())
                 .data(consultaDTO.getData())
                 .build();
     }
