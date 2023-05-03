@@ -44,8 +44,12 @@ public class ConsultaService {
 
         var pacienteId = pacienteRepository.getReferenceById(dadosAgendamentoConsulta.getPacienteId());
         var medicoLivre = escolherMedico(dadosAgendamentoConsulta);
-        var consulta = new Consulta(null, medicoLivre, pacienteId, dadosAgendamentoConsulta.getData());
 
+        if (medicoLivre == null){
+            throw new ValidacaoException("Não existe médico disponível nesta data!");
+        }
+
+        var consulta = new Consulta(null, medicoLivre, pacienteId, dadosAgendamentoConsulta.getData());
 
         return ResponseApi.of(consultaRepository.save(consulta));
     }
