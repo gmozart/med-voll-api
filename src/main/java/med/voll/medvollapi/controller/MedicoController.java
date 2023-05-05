@@ -1,6 +1,7 @@
 package med.voll.medvollapi.controller;
 
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
+@SecurityRequirement(name = "bearer-key")
 @RequestMapping("/medicos")
 public class MedicoController {
 
