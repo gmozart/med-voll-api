@@ -29,4 +29,5 @@ public class Medico {
     private Endereco endereco;
     private Boolean ativo;
 
+
 }
